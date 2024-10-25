@@ -1,0 +1,115 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 3rem;
+  padding: 2rem;
+  background-color: hsl(13, 31%, 94%);
+  color: black;
+}
+
+img {
+  position: relative;
+  max-width: 100%; /* Ensures the image is responsive */
+  height: 230px;
+  display: block; /* Prevents any inline spacing around images */
+  border-radius: 8px;
+  margin-bottom: 35px;
+}
+
+.desserts-grid {
+  position: absolute;
+  margin-right: 270px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 10px; /* Space between the items */
+}
+
+.cartcontainer {
+  background-color: #f9f9f9;
+  padding: 30px;
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+  position: absolute;
+  margin-left: 800px;
+  margin-top: -50px;
+  width: 200px;
+}
+
+.cartcontainer h3 {
+  text-align: left;
+  font-size: 17px;
+  color: #d35400;
+  margin-top: 10px;
+}
+
+.cartcontainer img {
+  position: relative;
+  margin-top: 10px;
+  width: 1500px;
+  height: 100px;
+}
+
+.cartcontainer p {
+  font-size: 10px;
+  color: #555;
+  margin: 0;
+}
+
+.products p {
+  font-size: 9px;
+  color:#555;
+  margin-bottom: 10px;
+}
+
+.products b {
+  font-size: 11px;
+  color: black;
+}
+
+.products span{
+  font-size: 11px;
+  color: brown;
+}
+
+.add-to-cart {
+  position: absolute;
+  display: flex; /* Align icon and text in a row */
+  align-items: center; /* Center vertically */
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-left: 67px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid  #333;
+  border-radius: 50px;
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  margin-top: -105px;
+  width: 110px;
+  height: 10px;
+}
+
+.add-to-cart .icon {
+  padding: -15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 20px;
+  max-height: 15px;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+}
+
+.add-to-cart:hover {
+  background-color: #d35400;
+  color: white;
+}
+
+.add-to-cart:hover .icon {
+  filter: brightness(0) invert(1);
+}
