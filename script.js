@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Fetching data...");
 
-    fetch('http://127.0.0.1:8081/data.json')
+    fetch('data.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok: ' + response.statusText);
@@ -9,27 +9,42 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
-            console.log('Fetched data:', data); // Log the fetched data
-            
-            const dessertsContainer = document.getElementById('desserts-container');
+            console.log('Fetched data:', data);
 
-            // Check if data is an array
+            const dessertsGrid = document.querySelector('.desserts-grid');
+            dessertsGrid.innerHTML = '';
+
             if (Array.isArray(data)) {
                 data.forEach(dessert => {
-                    const dessertDiv = document.createElement('div');
-                    dessertDiv.innerHTML = `
-                        <h2>${dessert.name}</h2>
-                        <img src="${dessert.image.thumbnail}" alt="${dessert.name}">
-                        <p>Category: ${dessert.category}</p>
-                        <p>Price: $${dessert.price.toFixed(2)}</p>
+                    const productDiv = document.createElement('div');
+                    productDiv.className = 'products';
+                    productDiv.innerHTML = `
+                        <img src="${dessert.image.desktop}" alt="${dessert.name}">
+                        <p>${dessert.category}</p>
+                        <p><b>${dessert.name}</b></p>
+                        <span class="currency"><strong>$${dessert.price.toFixed(2)}</strong></span>
+                        <button class="add-to-cart">
+                            <img src="./assets/images/icon-add-to-cart.svg" alt="Cart Icon" class="icon">
+                            <p>Add to Cart</p>
+                        </button>
                     `;
-                    dessertsContainer.appendChild(dessertDiv);
+                    dessertsGrid.appendChild(productDiv);
                 });
+
+                // Add the cart container
+                const cartContainer = document.createElement('div');
+                cartContainer.className = 'cartcontainer';
+                cartContainer.innerHTML = `
+                    <h3>Your Cart (0)</h3>
+                    <img src="./assets/images/illustration-empty-cart.svg" alt="Cart is empty">
+                    <p>Your added items will appear here</p>
+                `;
+                dessertsGrid.appendChild(cartContainer);
             } else {
                 console.error('Expected an array, but got:', data);
             }
         })
         .catch(error => {
-            console.error('Error fetching data:', error.message); // Log a more descriptive error
+            console.error('Error fetching data:', error.message);
         });
 });
