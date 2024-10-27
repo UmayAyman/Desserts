@@ -25,36 +25,65 @@ img {
 }
 
 .cartcontainer {
-  background-color: #f9f9f9;
-  padding: 30px;
-  max-width: 100%;
-  border-radius: 12px;
-  display: block;
-  text-align: center;
-  position: absolute;
-  margin-left: 800px;
-  margin-top: -50px;
-  width: 200px;
+    background-color: #f9f9f9;
+    padding: 30px;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    text-align: center;
+    position: fixed;
+    margin-left: 800px;
+    margin-top: -50px;
+    width: 300px;    /*don't define height if you want to add items in cart and adjust the container size according to items*/
 }
 
 .cartcontainer h3 {
-  text-align: left;
-  font-size: 17px;
+  font-size: 22px;
   color: #d35400;
-  margin-top: 10px;
+  margin: 10px;
+  margin-right: 150px;
 }
 
 .cartcontainer img {
-  position: relative;
-  margin-top: 10px;
-  width: 1500px;
+  width: 100%;
   height: 100px;
+  margin: 10px 0;
 }
 
 .cartcontainer p {
-  font-size: 10px;
+  font-size: 12px;
   color: #555;
-  margin: 0;
+  margin: 10px;
+}
+
+.cart-items {
+  font-weight: bold;
+  font-size: 12px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.subtotal {
+  font-weight: bold;
+  font-size: 14px;
+  color: #d35400;
+  margin-bottom: 15px;
+
+}
+
+.confirm-order {
+  padding: 10px 15px;
+  background-color: #d35400;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+}
+
+.confirm-order:hover {
+  background-color: #c0392b;
 }
 
 .products p {
@@ -112,4 +141,76 @@ img {
 
 .add-to-cart:hover .icon {
   filter: brightness(0) invert(1);
+}
+
+.remove-item {
+  background-color: white;
+  border-color: grey;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid hsl(30, 18%, 87%);
+}
+
+.confirmation-container {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 470px;
+}
+
+.confirmation-content p{
+  font: normal;
+  margin-right: 250px;
+  font-size: small;
+}
+
+.confirmation-container h2 {
+  color: black;
+  margin-right: 250px;
+}
+
+.confirmation-container h3 {
+  color: black;
+  font-size: small;
+}
+
+.confirmation-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.confirmation-container .new-order-button {
+  padding: 10px 15px;
+  background-color: #d35400;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.confirmation-container .new-order-button:hover {
+  background-color: #c0392b;
 }
